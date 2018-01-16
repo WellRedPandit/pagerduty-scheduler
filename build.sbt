@@ -1,6 +1,6 @@
 lazy val bintraySettings = Seq(
-  bintrayOrganization := Some("pagerduty"),
-  bintrayRepository := "oss-maven",
+//  bintrayOrganization := Some("pagerduty"),
+//  bintrayRepository := "oss-maven",
   licenses += ("BSD New", url("https://opensource.org/licenses/BSD-3-Clause")),
   publishMavenStyle := true,
   pomExtra := (<url>https://github.com/PagerDuty/scheduler</url>
@@ -90,7 +90,7 @@ lazy val scheduler = (project in file("scheduler"))
   .dependsOn(common % "it,test->test;compile->compile")
   .dependsOn(scalaApi % "it")
   .configs(IntegrationTest)
-  .settings(inConfig(IntegrationTest)(scalafmtSettings))
+//  .settings(inConfig(IntegrationTest)(scalafmtSettings))
   .settings(sharedSettings: _*)
   .settings(Defaults.itSettings: _*)
   .settings(
@@ -121,7 +121,7 @@ lazy val httpAdmin = (project in file("http-admin"))
   .dependsOn(common % "test->test;compile->compile")
   .dependsOn(scheduler % "it->it;test->test;compile->compile")
   .configs(IntegrationTest)
-  .settings(inConfig(IntegrationTest)(scalafmtSettings))
+//  .settings(inConfig(IntegrationTest)(scalafmtSettings))
   .settings(sharedSettings: _*)
   .settings(Defaults.itSettings: _*)
   .settings(
@@ -148,4 +148,4 @@ lazy val root = (project in file("."))
   )
   .aggregate(common, scalaApi, scheduler, httpAdmin)
 
-scalafmtOnCompile in ThisBuild := true
+//scalafmtOnCompile in ThisBuild := true
